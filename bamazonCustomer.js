@@ -2,7 +2,7 @@ var Table = require("cli-table2");
 var inquirer = require("inquirer");
 var mysql = require("mysql");
 
-// uses cli-table2 to create a table
+// make a table that you can see in node using cli-table2
 var table = new Table({
   chars: {
     'top': '═', 'top-mid': '╤', 'top-left': '╔', 'top-right': '╗'
@@ -12,7 +12,6 @@ var table = new Table({
   }
 });
 
-// connects to the bamazon database using mysql
 var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
@@ -45,6 +44,7 @@ function connectionSuccess() {
     
           table.push(productData);
     }
+
     console.log(table.toString());
     purchase(res);
   });
